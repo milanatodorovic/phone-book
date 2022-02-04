@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ButtonHeader.module.css";
 
-const ButtonHeader = () => {
+const ButtonHeader = (props) => {
   return (
     <>
       <div className={styles.wrapper}>
@@ -11,11 +11,11 @@ const ButtonHeader = () => {
             alt="menu icon"
             className={styles.img}
           />
-          <h2>Kontakti</h2>
+          <h2>Contacts</h2>
         </div>
 
         <div className={styles.buttonHolder}>
-          <button>Dodaj Novi</button>
+          <button onClick={() => props.startAdd()}>Add New</button>
         </div>
       </div>
     </>

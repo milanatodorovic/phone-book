@@ -14,13 +14,13 @@ const Navbar = () => {
 
         <ul className={styles.ulLinks}>
           <NavLink to="/">
-            <li className={styles.li}>Početna</li>
+            <li className={styles.li}>Home</li>
           </NavLink>
           <NavLink to="/about">
-            <li className={styles.li}>O nama</li>
+            <li className={styles.li}>About</li>
           </NavLink>
           <NavLink to="/contact">
-            <li className={styles.li}>Kontakt</li>
+            <li className={styles.li}>Contact</li>
           </NavLink>
         </ul>
       </nav>
