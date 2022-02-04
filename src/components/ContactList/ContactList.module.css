@@ -1,5 +1,4 @@
 .table {
-  display: table;
   margin-top: 30px;
   margin-left: 30px;
   width: 920px;
@@ -8,8 +7,8 @@
   font-size: 15px;
   background: #ffffff;
   border: 1px solid rgba(20, 20, 43, 0.25);
+  border-radius: 16px 16px 0;
 }
-
 .header {
   background-color: #3faad7;
   color: white;
@@ -19,4 +18,5 @@
 
 .header td {
   padding: 10px;
+  text-align: left;
 }

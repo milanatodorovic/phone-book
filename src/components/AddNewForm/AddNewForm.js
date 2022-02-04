@@ -1,32 +1,52 @@
 import React, { useState } from "react";
 import styles from "./AddNewForm.module.css";
+import { v4 as uuid } from "uuid";
 
 const AddNewForm = (props) => {
   const [visible, setVisible] = useState("block");
-  const [userName, setUserName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [username, setUsername] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  /*
-  const onChange = (e) => {
-    setUserName(e.target.value);
-    setLastName(e.target.value);
+
+  const usernameHandler = (e) => {
+    setUsername(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const lastnameHandler = (e) => {
+    setLastname(e.target.value);
+    console.log(e.target.value);
+  };
+  const emailHandler = (e) => {
     setEmail(e.target.value);
+    console.log(e.target.value);
+  };
+
+  const phoneHandler = (e) => {
     setPhone(e.target.value);
-  };*/
-  /*
-  const handleSubmit = (e) => {
+    console.log(e.target.value);
+  };
+
+  const submitHandler = (e) => {
     e.preventDefault();
 
+    const userData = {
+      username: username,
+      lastname: lastname,
+      email: email,
+      phone: phone,
+      id: uuid(),
+    };
 
-    if (userName.trim()) {
-      props.addContactProps(userName);
-      setUserName("");
-    } else {
-      alert("Please write a name");
-    }
-  };*/
+    console.log(userData);
+    props.onAdd(userData); //addUser
 
+    setUsername("");
+    setLastname("");
+    setPhone("");
+    setEmail("");
+  };
   //form visibility
   const displaySetting = {
     display: visible,
@@ -49,49 +69,57 @@ const AddNewForm = (props) => {
             />
           </div>
 
-          <form>
+          <form onSubmit={submitHandler}>
             <div className={styles.formInputs}>
               <input
-                value={userName}
+                value={username}
+                id="username"
                 type="text"
-                name="userName"
+                name="username"
+                required
                 placeholder="Name"
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={usernameHandler}
               />
             </div>
 
             <div className={styles.formInputs}>
               <input
-                value={lastName}
+                value={lastname}
+                id="lastname"
+                required
                 type="text"
-                name="lastName"
+                name="lastname"
                 placeholder="Last name"
-                onChange={(e) => setLastName(e.target.value)}
+                onChange={lastnameHandler}
               />
             </div>
 
             <div className={styles.formInputs}>
               <input
                 value={email}
+                id="email"
+                required
                 type="email"
                 name="email"
                 placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={emailHandler}
               />
             </div>
 
             <div className={styles.formInputs}>
               <input
                 value={phone}
+                id="phone"
+                required
                 type="text"
                 name="phone"
                 placeholder="Phone number"
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={phoneHandler}
               />
             </div>
 
             <div className={styles.formInputs}>
-              <button type="submit">Add</button>
+              <button>Add</button>
             </div>
           </form>
         </div>
